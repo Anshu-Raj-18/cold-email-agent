@@ -1,0 +1,87 @@
+{
+  "name": "Anshu Raj",
+  "email": "qismcdeltat@gmail.com",
+  "phone": "+91 9110949492",
+  "location": "Kolkata, India",
+  "target_position": "AI/ML Engineering Intern / Research Intern",
+  "github": "https://github.com/Anshu-Raj-18",
+  "linkedin": "https://www.linkedin.com/in/anshu-raj-937075321",
+  "resume_drive_link": "https://drive.google.com/file/d/1XW5vi2Rfq8miIzVFq7OhoBLv9d0olVnX/view?usp=sharing",
+  "education": [
+    {
+      "degree": "B.Tech in Electronics & Communication Engineering (ECE)",
+      "institution": "Heritage Institute of Technology, Kolkata, India",
+      "period": "Aug 2024 – May 2028 (Expected)",
+      "cgpa": "8.8",
+      "current_year": "3rd Year",
+      "summary": "3rd-year ECE undergraduate with self-taught expertise in Machine Learning, data preprocessing, and API development. 1st Rank winner in SIH Internal Hackathon, Top-15 finalist among 200+ teams, and actively competing in hackathons."
+    }
+  ],
+  "technical_skills": {
+    "programming_languages": ["Python", "C", "SQL"],
+    "ai_ml_vision": [
+      "Machine Learning",
+      "Deep Learning",
+      "Computer Vision",
+      "PyTorch",
+      "Scikit-learn",
+      "Data Preprocessing",
+      "Feature Engineering",
+      "OpenCV"
+    ],
+    "data_analysis": ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
+    "backend_web": ["FastAPI", "Postman", "REST APIs", "Streamlit"],
+    "databases_and_tools": ["PostgreSQL", "SQLite", "Git", "GitHub"],
+    "spoken_languages": ["English (Fluent)", "Hindi (Native)", "Bengali (Basic)"]
+  },
+  "research_projects": [
+    {
+      "title": "AURA — AI for Unified Regional Access",
+      "domain": "Speech Processing & Conversational AI",
+      "technologies": ["Python", "Vosk", "SQLite", "PyTorch", "MMS-TTS"],
+      "summary": "Built an offline Hindi-to-Tribal speech translation system integrating ASR, translation retrieval, transliteration, and speech synthesis. Integrated 82,598+ Hindi–Santali translation pairs into an indexed SQLite database for efficient retrieval."
+    },
+    {
+      "title": "Deep Learning Image Enhancer",
+      "domain": "Computer Vision & Image Restoration",
+      "technologies": ["Python", "PyTorch", "OpenCV"],
+      "summary": "Developed an AI-based image enhancement tool to restore blurry microscopic images. Improved image quality and generated 2x higher-resolution outputs."
+    },
+    {
+      "title": "WhatsApp Chat Analyzer",
+      "domain": "Data Analytics & NLP",
+      "technologies": ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit"],
+      "summary": "Built a WhatsApp chat analysis tool to extract insights from exported chat data. Analyzed user activity, message trends, and chat statistics with clear visualizations and interactive dashboard."
+    }
+  ],
+  "hackathons_and_achievements": [
+    "Winner (1st Rank) & Runner-Up – SIH Internal Hackathons (2024, 2025)",
+    "Runner-Up – TCS Hackathon",
+    "Participated in 9+ hackathons"
+  ],
+  "research_interests": [
+    "Machine Learning & Deep Learning",
+    "Computer Vision & Pattern Recognition",
+    "Speech Processing & Translation AI",
+    "Data Preprocessing & Neural Pipelines",
+    "Production AI/ML Engineering & Edge Systems"
+  ],
+  "target_institutions": [
+    "IIT Bombay",
+    "IIT Hyderabad",
+    "IIT Delhi",
+    "IIT Madras",
+    "IIT Kanpur",
+    "IIT Kharagpur",
+    "IIT Roorkee",
+    "IIT Guwahati",
+    "IIIT Hyderabad",
+    "IIIT Delhi",
+    "IIIT Bangalore",
+    "IISc Bangalore",
+    "NIT Trichy",
+    "NIT Warangal",
+    "IISER Pune"
+  ],
+  "resume_filename": "Anshu_Raj_Resume.pdf"
+}

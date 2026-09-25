@@ -1,0 +1,31 @@
+# Environment variables & secrets
+.env
+credentials.json
+token.json
+*.key
+*.pem
+
+# Python & Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Databases & Vector Stores
+.chroma_db/
+*.db
+*.sqlite3
+
+# Generated Artifacts
+generated_cover_letters/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

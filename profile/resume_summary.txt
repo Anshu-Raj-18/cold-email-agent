@@ -1,0 +1,42 @@
+CANDIDATE SUMMARY: Anshu Raj
+EMAIL: qismcdeltat@gmail.com | PHONE: (+91) 9110949492 | LOCATION: Kolkata, India
+GITHUB: https://github.com/Anshu-Raj-18 | LINKEDIN: https://www.linkedin.com/in/anshu-raj-937075321
+RESUME DRIVE LINK: https://drive.google.com/file/d/1XW5vi2Rfq8miIzVFq7OhoBLv9d0olVnX/view?usp=sharing
+DEGREE: B.Tech in Electronics & Communication Engineering (ECE), 3rd Year (Expected Graduation: May 2028)
+INSTITUTION: Heritage Institute of Technology, Kolkata, India | Overall CGPA: 8.8
+
+PROFESSIONAL SUMMARY:
+3rd-year ECE undergraduate with self-taught expertise in Machine Learning, data preprocessing, and API development. 
+1st Rank winner in SIH Internal Hackathon, Top-15 finalist among 200+ teams, and actively competing in hackathons. 
+Experienced in data cleaning, ML models, and core Deep Learning & Computer Vision. Seeking an AI/ML Engineering 
+Internship / Research position to build practical, production-ready systems.
+
+TECHNICAL SKILLS:
+- Languages: Python, C, SQL
+- AI / Machine Learning: PyTorch, Computer Vision, Scikit-learn, Data Preprocessing, Feature Engineering, OpenCV
+- Data Analysis & Visualization: Pandas, NumPy, Matplotlib, Seaborn
+- Backend & Web: Postman, FastAPI, Streamlit
+- Databases & Tools: PostgreSQL, SQLite, Git, GitHub
+- Spoken Languages: English (Fluent), Hindi (Native), Bengali (Basic)
+
+SELECTED PROJECTS:
+
+1. Project: AURA — AI for Unified Regional Access (2024)
+   - Built an offline Hindi-to-Tribal speech translation system integrating ASR, translation retrieval, transliteration, and speech synthesis using Python, Vosk, SQLite, PyTorch, and MMS-TTS.
+   - Integrated 82,598+ Hindi–Santali translation pairs into an indexed SQLite database for efficient retrieval.
+
+2. Project: Deep Learning Image Enhancer (2024)
+   - Developed an AI-based image enhancement tool using Python, PyTorch, and OpenCV to restore blurry microscopic images.
+   - Improved image quality and generated 2x higher-resolution outputs for scientific visualization.
+
+3. Project: WhatsApp Chat Analyzer (2023)
+   - Built a WhatsApp chat analysis tool to extract insights from exported chat data using Python, Pandas, NumPy, Matplotlib, Seaborn, and Streamlit.
+   - Analyzed user activity, message trends, and chat statistics with clear visualizations and an interactive dashboard.
+
+HACKATHONS & ACHIEVEMENTS:
+- Winner (1st Rank) & Runner-Up – SIH Internal Hackathons (2024, 2025 ,2026)
+- Runner-Up – TCS Hackathon
+- Participated in 9+ hackathons
+
+RESEARCH INTERESTS:
+- Machine Learning & Deep Learning, Computer Vision & Image Restoration, Speech Processing & Translation AI, Multimodal AI Systems, Edge AI Deployment.

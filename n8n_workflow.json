@@ -1,0 +1,276 @@
+{
+  "name": "AI-Powered National Professor Cold Email, Follow-Up & Reply Tracker",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger-1",
+      "name": "1. Manual Outreach Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [200, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/api/professors/discover-and-rank",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"institution_type\": \"ALL\",\n  \"research\": \"Machine Learning Computer Vision Deep Learning Assistive\",\n  \"threshold\": 70.0\n}"
+      },
+      "id": "http-discover-rank",
+      "name": "2. Discover & Rank Across National Institutes",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [420, 200]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "professors",
+        "options": {}
+      },
+      "id": "split-professors",
+      "name": "3. Split Professors List",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 3,
+      "position": [640, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.is_shortlisted }}",
+              "value2": true
+            },
+            {
+              "value1": "={{ $json.already_contacted }}",
+              "value2": false
+            }
+          ]
+        }
+      },
+      "id": "filter-shortlisted",
+      "name": "4. Filter Shortlisted & New",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [860, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/api/application/prepare",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"professor_id\": {{ $json.professor_id }},\n  \"match_id\": {{ $json.match_id }}\n}"
+      },
+      "id": "http-prepare-package",
+      "name": "5. Generate Application Package",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1080, 160]
+    },
+    {
+      "parameters": {
+        "amount": 15,
+        "unit": "seconds"
+      },
+      "id": "wait-safe-sending",
+      "name": "6. Wait 15s (Safe Rate Limit)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [1300, 160]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/api/application/send",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"application_id\": {{ $json.application_id }},\n  \"user_approved\": true\n}"
+      },
+      "id": "http-send-application",
+      "name": "7. Send Email via Gmail",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1520, 160]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "id": "schedule-reply-monitor",
+      "name": "⏰ 2-Hour Reply Scanner Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [200, 480]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://host.docker.internal:8000/api/inbox/check-replies"
+      },
+      "id": "http-check-replies",
+      "name": "📬 Check Professor Replies",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [440, 480]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.total_detected }}",
+              "operation": "larger",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "if-reply-found",
+      "name": "If New Reply Found",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 480]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "schedule-daily-followup",
+      "name": "⏰ Daily 10-Day Followup Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [200, 720]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/api/applications/auto-followup",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"days_threshold\": 10\n}"
+      },
+      "id": "http-auto-followup",
+      "name": "✉️ Auto-Send 10-Day Follow-Ups",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [440, 720]
+    }
+  ],
+  "connections": {
+    "1. Manual Outreach Trigger": {
+      "main": [
+        [
+          {
+            "node": "2. Discover & Rank Across National Institutes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Discover & Rank Across National Institutes": {
+      "main": [
+        [
+          {
+            "node": "3. Split Professors List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3. Split Professors List": {
+      "main": [
+        [
+          {
+            "node": "4. Filter Shortlisted & New",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4. Filter Shortlisted & New": {
+      "main": [
+        [
+          {
+            "node": "5. Generate Application Package",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "5. Generate Application Package": {
+      "main": [
+        [
+          {
+            "node": "6. Wait 15s (Safe Rate Limit)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "6. Wait 15s (Safe Rate Limit)": {
+      "main": [
+        [
+          {
+            "node": "7. Send Email via Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⏰ 2-Hour Reply Scanner Schedule": {
+      "main": [
+        [
+          {
+            "node": "📬 Check Professor Replies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📬 Check Professor Replies": {
+      "main": [
+        [
+          {
+            "node": "If New Reply Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⏰ Daily 10-Day Followup Schedule": {
+      "main": [
+        [
+          {
+            "node": "✉️ Auto-Send 10-Day Follow-Ups",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
