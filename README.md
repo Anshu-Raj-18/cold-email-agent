@@ -1,4 +1,4 @@
-# ColdMailer — AI-Powered National Professor Research Matching & RAG Outreach System
+# Academic Literature RAG Agent — AI-Powered National Professor Research Matching & RAG Outreach System
 
 An end-to-end, modular Python application that automates academic cold outreach targeting premier faculty across **IIT, IIIT, IISc, NIT, IISER, ISB, and IIM** institutes using Retrieval-Augmented Generation (RAG) powered by **Google Gemini 2.5 Flash**, **ChromaDB**, **ReportLab PDF**, and the **Gmail API**.
 
@@ -22,7 +22,7 @@ Candidate Profile Grounded: **Anshu Raj** (`qismcdeltat@gmail.com` | B.Tech ECE,
 ## 📁 Project Architecture
 
 ```text
-ColdMailer/
+Academic Literature RAG Agent/
 │
 ├── .env.example              # Environment variables template
 ├── .env                      # Local configuration file
